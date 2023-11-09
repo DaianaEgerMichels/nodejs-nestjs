@@ -22,6 +22,7 @@ export class IsUniqueEmailValidator implements ValidatorConstraintInterface {
   }
 }
 
+// to register decorator in the class-validator
 export const IsUniqueEmail = (optionsValidations: ValidationOptions) => {
   // eslint-disable-next-line @typescript-eslint/ban-types
   return (object: Object, propertie: string) => {
