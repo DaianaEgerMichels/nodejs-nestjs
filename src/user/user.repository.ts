@@ -12,4 +12,9 @@ export class UserRepository {
   async findAll() {
     return this.users;
   }
+
+  async existsEmail(email: string) {
+    const existsUser = this.users.find((user) => user.email === email);
+    return existsUser !== undefined;
+  }
 }
