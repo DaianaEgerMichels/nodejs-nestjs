@@ -18,4 +18,21 @@ export class UserRepository {
     const existsUser = this.users.find((user) => user.email === email);
     return existsUser !== undefined;
   }
+
+  async updated(id: string, dataUserForUpdated: Partial<UserEntity>) {
+    const userExists = this.users.find((user) => user.id === id);
+
+    if (!userExists) {
+      throw new Error('User not found');
+    }
+
+    Object.entries(dataUserForUpdated).forEach(([key, value]) => {
+      if (key === 'id') {
+        return;
+      }
+      userExists[key] = value;
+    });
+
+    return userExists;
+  }
 }
