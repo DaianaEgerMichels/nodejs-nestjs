@@ -58,8 +58,8 @@ export class ProductCreateDTO {
   category: string;
 
   @IsDate({ message: 'The date provided is not valid' })
-  dateCreate: Date;
+  createdAt: Date;
 
   @IsDate({ message: 'The date provided is not valid' })
-  dateUpdate: Date;
+  updatedAt: Date;
 }
